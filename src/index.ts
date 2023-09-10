@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import fs from 'fs';
-import tal  from 'template-tal';
+// @ts-ignore
+import tal from 'template-tal';
 
 const app = new Koa();
 
@@ -9,11 +10,14 @@ app.use(async (ctx: Koa.Context) => {
   const data = {
     foo: "FOO",
     bar: () => "BAR",
-    baz: () => new Promise(resolve => setTimeout(() => resolve('BAZ'), 5000)),
     getBasket: () => ['apple', 'orange', 'banana']
   };
-  tal.process(html, data).then((result: string) => {
-    ctx.body = result;
+  tal.process(html, data, (error: string, result: string) => {
+    if (error != null) {
+      console.error(error);
+    } else {
+      ctx.body = result;
+    }
   });
 });
 

@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <p tal:content="foo">Dummy Content</p>
+    <p tal:content="bar()">Dummy Content</p>
+    <ul>
+      <li tal:repeat="item getBasket()" tal:content="item">
+        some fruit goes here
+      </li>
+    </ul>
+  </body>
+</html>
