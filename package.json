@@ -12,5 +12,9 @@
   "dependencies": {
     "koa": "^2.14.2",
     "template-tal": "^0.2.9"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.8",
+    "ts-node": "^10.9.1"
   }
 }
